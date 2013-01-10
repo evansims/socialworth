@@ -20,3 +20,24 @@ It currently supports:
 The script itself is named socialworth.php by default. You can use demo.html to see it in action.
 
 If you wish to include the backlinks check, you'll need to sign up for a seomoz Mozscape API account and modify the script to include your account details. None of the other services require setup.
+
+---
+
+Pass a url parameter to the script to receive a JSON object breaking down the metrics.
+
+```json
+{
+	count: 20733,
+	services: {
+		mozscape: 0,
+		facebook: 588,
+		pinterest: 0,
+		twitter: 570,
+		linkedin: 451,
+		stumbleupon: 15503,
+		reddit: 16,
+		hackernews: 497,
+		googleplus: 3108
+	}
+}
+```
