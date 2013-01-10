@@ -214,7 +214,6 @@
 
 			curl_setopt($api, CURLOPT_POST, false);
 			curl_setopt($api, CURLOPT_POSTFIELDS, NULL);
-			curl_setopt($api, CURLOPT_REFERER, 'http://evansims.dev');
 			if(isset($params['headers'])) curl_setopt($api, CURLOPT_HTTPHEADER, $params['headers']);
 
 			if ($method == 'GET') {
