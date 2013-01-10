@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Socialworth Demo</title>
+
+		<!-- Include jQuery -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+
+		<!-- Example of querying the socialworth script. -->
+		<script>
+		$(function() {
+			$("form").on("submit", function(e) {
+				e.preventDefault;
+
+				url = $(this).find('input[type=url]');
+
+				// Abort if we have a request pending.
+				if(url.attr("disabled")) return false;
+				
+				// Disable form elements.
+				$(this).find('input').attr("disabled", "disabled");
+				$("table").html("");
+
+				url = url.val();
+
+				$.getJSON("./socialworth.php", { url: url }, function(data) {
+					$("form").find('input').removeAttr("disabled");
+					$("h1").html(data.count + " &hearts;");
+
+					$.each(data.services, function(service, count) {
+						var row = $("<tr />");
+						row.append($("<td />").html(service));
+						row.append($("<td />").html(count));
+
+						$("table").append(row);
+					});
+				});
+
+
+				return false;
+			});
+		});
+		</script>
+	</head>
+
+	<body>
+		<form>
+			<input type="url" name="url" placeholder="URL to check" />
+			<input type="submit" value="Check URL" />
+		</form>
+
+		<!-- A display container for the URL's worth -->
+		<h1></h1>
+
+		<!-- A display container for the URL's value on each queried network. -->
+		<table></table>
+	</body>
+
+</html>
