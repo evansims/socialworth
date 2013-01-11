@@ -25,7 +25,9 @@ If you wish to include the backlinks check, you'll need to sign up for a seomoz 
 
 Pass a url parameter to the script ...
 
-```http://localhost/socialworth.php?url=http://github.com```
+```
+http://localhost/socialworth.php?url=http://github.com
+```
 
 ... to receive a JSON object breaking down the metrics:
 
