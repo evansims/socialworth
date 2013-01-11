@@ -44,4 +44,4 @@ Pass a url parameter to the script to receive a JSON object breaking down the me
 
 ---
 
-This work was inspired by and expanded upon Jonathan Moore's gist: https://gist.github.com/2640302
+This work was inspired by Jonathan Moore's gist: https://gist.github.com/2640302
