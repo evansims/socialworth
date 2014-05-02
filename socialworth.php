@@ -83,9 +83,9 @@
 		array(
 			'name'     => 'pinterest',
 			'method'   => 'GET',
-			'url'      => "http://api.pinterest.com/v1/urls/count.json?callback=&url={$url}",
+			'url'      => "http://api.pinterest.com/v1/urls/count.json?url={$url}",
 			"callback" => function($resp) {
-				$resp = json_decode(substr($resp, 1, -1));
+				$resp = json_decode(substr($resp, strpos($resp, '{'), -1));
 				if(isset($resp->count)) {
 					return (int)$resp->count;
 				} else {
