@@ -1,50 +1,48 @@
-# Socialworth
-
-A PHP script for determining the popularity of a given URL across social networks and search engines.
+**Socialworth** is a PHP script for determining the popularity of a given URL across social networks and search engines.
 
 This script can be used as is or as a foundation for your own code. It's intended to demonstrate how one can harness existing APIs to acquire social networking metrics without the need for bloated client-side JavaScript SDKs or latency inducing middle man services.
 
 It currently supports:
-* Facebook likes, comments, click throughs and shares (combined by default; seperately with minor modifications)
-* Twitter mentions of the url (via tweets, retweets, shares, or anything else.)
-* Reddit (combines the number of submitted stories and upvotes)
-* Hacker News (combines the number of submitted stories, points and comments)
-* Google +1s globally
-* StumbleUpon views
-* LinkedIn shares
-* Pinterest shares (note: the pinterest api is not officially open nor is it documented; it's also very unreliable in it's responses)
-* Mozscape (for backlinks; requires a free account with their service)
+* Facebook likes, comments, click throughs and shares (combined.)
+* Twitter mentions of the url (tweets, retweets, or shares.)
+* Reddit (submitted stories + upvotes.)
+* Hacker News (submitted stories, points + comments.)
+* Google +1s.
+* StumbleUpon views.
+* LinkedIn shares.
+* Pinterest shares. _Note: The Pinterest api is not documented and can be unreliable._
+* Backlinks via [Mozscape's API](http://moz.com).
 
 ---
 
-The script itself is named socialworth.php by default. You can use demo.html to see it in action.
-
-If you wish to include the backlinks check, you'll need to sign up for a seomoz Mozscape API account and modify the script to include your account details. None of the other services require setup.
+**Note:** For search engine backlinking you'll need to sign up for a [Mozscape API account](http://moz.com/) and modify the script to include your account details. Mozscape counts will not be included in responses unless this has been configured.
 
 ---
 
-Pass a url parameter to the script ...
-
+You can call the script from the command line ...
 ```
-http://localhost/socialworth.php?url=http://github.com
+$ php socialworth.php https://github.com
+```
+
+Or pass a url parameter to the script ...
+```
+http://localhost/socialworth.php?url=https://github.com
 ```
 
 ... to receive a JSON object breaking down the metrics:
-
 ```json
 {
-	count: 20733,
-	services: {
-		mozscape: 0,
-		facebook: 588,
-		pinterest: 0,
-		twitter: 570,
-		linkedin: 451,
-		stumbleupon: 15503,
-		reddit: 16,
-		hackernews: 497,
-		googleplus: 3108
-	}
+    "count": 20733,
+    "services": {
+        "facebook": 588,
+        "pinterest": 0,
+        "twitter": 570,
+        "linkedin": 451,
+        "stumbleupon": 15503,
+        "reddit": 16,
+        "hackernews": 497,
+        "googleplus": 3108
+    }
 }
 ```
 
