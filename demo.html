@@ -25,7 +25,7 @@
 
 				url = url.val();
 
-				$.getJSON("./socialworth.php", { url: url }, function(data) {
+				$.getJSON("./demo.php", { url: url }, function(data) {
 					$("form").find('input').removeAttr("disabled");
 					$("h1").html(data.count + " &hearts;");
 
