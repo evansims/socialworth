@@ -1,5 +1,5 @@
 # Socialworth
-[![Build Status](https://travis-ci.org/evansims/socialworth.svg?branch=master)](https://travis-ci.org/evansims/socialworth)
+[![Build Status](https://travis-ci.org/evansims/socialworth.svg?branch=master)](https://travis-ci.org/evansims/socialworth) [![Coverage Status](https://coveralls.io/repos/evansims/socialworth/badge.png?branch=master)](https://coveralls.io/r/evansims/socialworth?branch=master)
 
 A PHP library for determining the popularity of a given URL by querying social network APIs.
 
