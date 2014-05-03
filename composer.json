@@ -2,7 +2,7 @@
     "name": "evansims/socialworth",
     "description": "A simple PHP library for determining the popularity of a URL across social networks.",
     "version": "2.0.0",
-    "keywords": ["twitter", "facebook", "pinterest", "linkedin" ,"reddit", "google+", "hackernews", "stumbleupon", "social network", "popularity", "analytics"],
+    "keywords": ["twitter", "facebook", "pinterest", "linkedin" ,"reddit", "google plus", "hackernews", "stumbleupon", "social network", "popularity", "analytics"],
     "homepage": "http://github.com/evansims/socialworth",
     "license": "MIT",
     "authors": [
