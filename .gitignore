@@ -1,2 +1,9 @@
 .DS_Store
-build/*
+phpunit.phar
+/vendor
+/build
+composer.phar
+composer.lock
+*.sublime-project
+*.sublime-workspace
+*.project

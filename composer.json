@@ -1,0 +1,24 @@
+{
+    "name": "evansims/socialworth",
+    "description": "A simple PHP library for determining the popularity of a URL across social networks.",
+    "version": "2.0.0",
+    "keywords": ["twitter", "facebook", "pinterest", "linkedin" ,"reddit", "google+", "hackernews", "stumbleupon", "social network", "popularity", "analytics"],
+    "authors": [
+        {
+            "name": "Evan Sims",
+            "homepage": "http://evansims.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Evansims\\Socialworth": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.3.0",
+        "lib-curl": "*"
+    },
+    "require-dev": {
+        "satooshi/php-coveralls": "dev-master"
+    }
+}
