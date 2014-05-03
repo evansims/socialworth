@@ -1,39 +1,97 @@
-**Socialworth** is a PHP script for determining the popularity of a given URL across social networks and search engines.
+# Socialworth
+A PHP library for determining the popularity of a given URL by querying social network APIs.
 
-This script can be used as is or as a foundation for your own code. It's intended to demonstrate how one can harness existing APIs to acquire social networking metrics without the need for bloated client-side JavaScript SDKs or latency inducing middle man services.
+It presently supports:
+- Twitter (counts mentions and retweets)
+- Facebook (counts likes, comments and shares)
+- Google+ (+1s)
+- Pinterest (shares)
+- Reddit (counts submitted stories and upvotes)
+- StumbleUpon views
+- LinkedIn shares
+- ~~Hacker News~~ _API service is currently offline._
+- ~~Mozscape Backlinks~~ _Retired._
 
-It currently supports:
-* Facebook likes, comments, click throughs and shares (combined.)
-* Twitter mentions of the url (tweets, retweets, or shares.)
-* Reddit (submitted stories + upvotes.)
-* Hacker News (submitted stories, points + comments.)
-* Google +1s.
-* StumbleUpon views.
-* LinkedIn shares.
-* Pinterest shares. _Note: The Pinterest api is not documented and can be unreliable._
-* Backlinks via [Mozscape's API](http://moz.com).
+## Installation
+To add this package as a dependency to your project, simply add
+`evansims/socialworth` to your project's composer.json file.
+Here is a minimal example of a composer.json file:
 
----
+    {
+        "require": {
+            "evansims/socialworth": "*"
+        }
+    }
 
-**Note:** For search engine backlinking you'll need to sign up for a [Mozscape API account](http://moz.com/) and modify the script to include your account details. Mozscape counts will not be included in responses unless this has been configured.
+Then run `composer update` to install it. Composer generates an
+`vendor/autoload.php` file you'll need to include in your project
+before calling Socialworth.
 
----
+    require 'vendor/autoload.php';
 
-You can call the script from the command line ...
-```
-$ php socialworth.php https://github.com
-```
+## Usage
+To query all supported services for a URL from within your project:
 
-Or pass a url parameter to the script ...
-```
-http://localhost/socialworth.php?url=https://github.com
-```
+    <?php
+    use Evansims\Socialworth;
 
-... to receive a JSON object breaking down the metrics:
-```json
-{
-    "count": 20733,
-    "services": {
+    $socialworth = Socialworth('https://github.com');
+    var_dump($socialworth->all());
+    ?>
+
+Alternatively you can query just one:
+
+    <?php
+    use Evansims\Socialworth;
+
+    var_dump(Socialworth::twitter('https://github.com'));
+    ?>
+
+Or leave out specific services from your query:
+
+    <?php
+    use Evansims\Socialworth;
+
+    $socialworth = Socialworth('https://github.com');
+    $socialworth->linkedin = false;
+
+    var_dump($socialworth->all());
+    ?>
+
+The `all()` method will return an object that you can pull the total overall
+count from, or individual services counts. Like so:
+
+    <?php
+    use Evansims\Socialworth;
+
+    $socialworth = Socialworth('https://github.com');
+    $response = $socialworth->all();
+
+    var_dump($response->total); // Total likes, shares, upvotes, etc.
+    var_dump($response->reddit); // Just shares and upvotes from reddit.
+    var_dump($response->twitter); // Just mentions, retweets and shares on Twitter.
+    ?>
+
+## Demo Script
+A demo script is provided that allows you to query the library from your
+browser, or the command line.
+
+To call the script from the command line ...
+
+    $ php demo.php https://github.com
+
+Or, to query individual services ...
+
+    $ php demo.php --twitter --facebook https://github.com
+
+If the demo script is accessible from your web server, you can pass a url ...
+
+    http://localhost/socialworth.php?url=https://github.com
+
+Whether from the CLI or the browser, you will receive a JSON object back.
+
+    {
+        "total": 20733,
         "facebook": 588,
         "pinterest": 0,
         "twitter": 570,
@@ -43,8 +101,6 @@ http://localhost/socialworth.php?url=https://github.com
         "hackernews": 497,
         "googleplus": 3108
     }
-}
-```
 
 ---
 
