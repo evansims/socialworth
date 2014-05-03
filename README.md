@@ -41,7 +41,7 @@ To query all supported services for a URL:
     <?php
     use Evansims\Socialworth;
 
-    $socialworth = Socialworth('https://github.com/');
+    $socialworth = new Socialworth('https://github.com/');
     var_dump($socialworth->all());
     ?>
 
@@ -58,7 +58,7 @@ Or leave out specific services from your query:
     <?php
     use Evansims\Socialworth;
 
-    $socialworth = Socialworth('https://github.com/');
+    $socialworth = new Socialworth('https://github.com/');
     $socialworth->linkedin = false;
 
     var_dump($socialworth->all());
@@ -70,7 +70,7 @@ service results or find the combined popularity from the services:
     <?php
     use Evansims\Socialworth;
 
-    $socialworth = Socialworth('https://github.com/');
+    $socialworth = new Socialworth('https://github.com/');
     $response = $socialworth->all();
 
     var_dump($response->total); // Total likes, shares, upvotes, etc.
