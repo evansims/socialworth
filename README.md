@@ -1,4 +1,6 @@
 # Socialworth
+[![Build Status](https://travis-ci.org/evansims/socialworth.svg?branch=master)](https://travis-ci.org/evansims/socialworth)
+
 A PHP library for determining the popularity of a given URL by querying social network APIs.
 
 It presently supports:
