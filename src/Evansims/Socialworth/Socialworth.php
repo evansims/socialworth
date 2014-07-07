@@ -1,5 +1,5 @@
 <?php
-namespace Evansims;
+namespace Evansims\SocialWorth;
 
 class Socialworth
 {
