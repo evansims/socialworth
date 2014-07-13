@@ -5,7 +5,7 @@ use Evansims\Socialworth;
 
 class SocialworthTest extends \PHPUnit_Framework_TestCase
 {
-    protected $test_url = 'http://deviantart.com';
+    protected $test_url = 'http://github.com';
     protected $test_bad_url = 'supercalifragilisticexpialidocious';
     protected $test_no_results_url = 'http://thisisbogus.supercalifragilisticexpialidocious.gov';
     protected $bogus_service_name = 'wubbalubbadubdubs';
