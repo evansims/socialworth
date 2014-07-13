@@ -1,7 +1,7 @@
 <?php
 require 'tests/bootstrap.php';
 
-use EvanSims\Socialworth;
+use Evansims\Socialworth;
 
 // Command Line
 if (PHP_SAPI == 'cli' && isset($argv) && count($argv > 1)) {
